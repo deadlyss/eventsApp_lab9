@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+
+<header th:fragment="header">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <div class="logo">
+        <a th:href="@{/events}">EventApp</a>
+    </div>
+
+    <nav>
+
+        <a sec:authorize="hasRole('ADMIN')"
+           th:href="@{/events/new}">
+            Створити подію
+        </a>
+
+    </nav>
+
+    <div class="user-panel">
+
+        <!-- Авторизований користувач -->
+        <div sec:authorize="isAuthenticated()">
+
+            <span sec:authentication="name"></span>
+
+            <span sec:authorize="hasRole('ADMIN')">
+                Адміністратор
+            </span>
+
+            <span sec:authorize="hasRole('USER')">
+                Користувач
+            </span>
+
+            <form th:action="@{/logout}" method="post">
+                <button type="submit">Вийти</button>
+            </form>
+
+        </div>
+
+        <!-- Гість -->
+        <div sec:authorize="isAnonymous()">
+
+            <a th:href="@{/login}">Увійти</a>
+
+            <a th:href="@{/customers/new}">
+                Реєстрація
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+</body>
+</html>

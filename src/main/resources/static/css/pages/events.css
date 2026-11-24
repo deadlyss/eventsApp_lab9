@@ -1,0 +1,119 @@
+/* Події */
+
+.event-card {
+    margin: 20px 0;
+    padding: 22px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.event-card h3 {
+    margin-top: 0;
+    color: #2463bd;
+}
+
+.event-card p {
+    color: #596773;
+    line-height: 1.5;
+}
+
+/* Назва події в картці */
+
+.event-card-title {
+    margin: 0 0 15px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.event-card-title a {
+    color: #263238;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.event-card-title a:hover {
+    color: #1976d2;
+}
+
+/* Сторінка створення події */
+
+.event-create {
+    max-width: 750px;
+    margin: 30px auto;
+}
+
+.event-create h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.event-create-section {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.event-create-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.event-create-section label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.event-create-section input {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.ticket-pack {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.ticket-pack h3 {
+    margin-top: 0;
+}
+
+.event-create-error {
+    color: #c62828;
+    background-color: #ffebee;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.event-create button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.event-create-back {
+    display: inline-block;
+    margin-top: 20px;
+    color: #1976d2;
+    text-decoration: none;
+}
+
+.event-create-back:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .event-create {
+        margin: 20px 10px;
+    }
+
+    .event-create-section {
+        padding: 18px;
+    }
+}

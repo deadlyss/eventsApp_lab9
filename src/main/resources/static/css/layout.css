@@ -1,0 +1,41 @@
+/* Верхня панель */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 6%;
+    background-color: #172b4d;
+    color: white;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: #8db7ff;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+.user-panel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-panel > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}

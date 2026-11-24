@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="uk"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація | EventApp</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{images/favicon.png}">
+</head>
+
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<main class="auth-container">
+
+    <div class="auth-card register-card">
+
+        <div class="auth-icon">📝</div>
+
+        <h1>Створення облікового запису</h1>
+
+        <p class="auth-description">
+            Зареєструйтеся в EventApp, щоб купувати квитки
+            та відвідувати улюблені події.
+        </p>
+
+        <div th:if="${error}"
+             th:text="${error}"
+             class="auth-error">
+        </div>
+
+        <form th:action="@{/customers/create}"
+              th:object="${customerDTO}"
+              method="post"
+              class="auth-form">
+
+            <input type="hidden"
+                   name="redirect"
+                   th:value="${redirect}">
+
+            <div class="auth-field">
+                <label for="name">Ім'я</label>
+                <input
+                        type="text"
+                        id="name"
+                        th:field="*{name}"
+                        placeholder="Введіть ваше ім'я"
+                        autocomplete="name"
+                        required>
+            </div>
+
+            <div class="auth-field">
+                <label for="email">Email</label>
+                <input
+                        type="email"
+                        id="email"
+                        th:field="*{email}"
+                        placeholder="example@email.com"
+                        autocomplete="email"
+                        required>
+            </div>
+
+            <div class="auth-field">
+                <label for="phone">Телефон</label>
+                <input
+                        type="tel"
+                        id="phone"
+                        th:field="*{phone}"
+                        placeholder="+380 XX XXX XX XX"
+                        autocomplete="tel">
+            </div>
+
+            <div class="auth-field">
+                <label for="password">Пароль</label>
+                <input
+                        type="password"
+                        id="password"
+                        th:field="*{password}"
+                        placeholder="Мінімум 8 символів"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required>
+
+                <span class="auth-hint">
+                    Пароль повинен містити щонайменше 8 символів.
+                </span>
+            </div>
+
+            <button type="submit" class="auth-button">
+                Зареєструватися
+            </button>
+
+        </form>
+
+        <div class="auth-divider"></div>
+
+        <p class="auth-register-text">
+            Уже маєте обліковий запис?
+        </p>
+
+        <a class="auth-register-button"
+           th:href="@{/login(redirect=${redirect})}">
+            Увійти
+        </a>
+
+        <a class="auth-back" th:href="@{/events}">
+            ← Повернутися до подій
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

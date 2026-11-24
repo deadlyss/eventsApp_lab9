@@ -1,0 +1,243 @@
+/* Сторінки авторизації */
+
+.auth-container {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 460px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+    text-align: center;
+}
+
+.auth-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #eff6ff;
+    font-size: 32px;
+}
+
+.auth-card h1 {
+    margin: 0 0 12px;
+    color: #1f2937;
+    font-size: 28px;
+}
+
+.auth-description {
+    margin-bottom: 28px;
+    color: #6b7280;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+}
+
+.auth-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth-field label {
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.auth-field input {
+    width: 100%;
+    padding: 13px 14px;
+    box-sizing: border-box;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-field input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.auth-button,
+.auth-register-button {
+    width: 100%;
+    min-height: 48px;
+    padding: 13px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.auth-button {
+    margin-top: 4px;
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.auth-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.auth-divider {
+    height: 1px;
+    margin: 28px 0 20px;
+    background: #e5e7eb;
+}
+
+.auth-register-text {
+    margin-bottom: 14px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.auth-register-button {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.auth-register-button:hover {
+    background: #dbeafe;
+}
+
+.auth-back {
+    display: inline-block;
+    margin-top: 28px;
+    color: #6b7280;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.auth-back:hover {
+    color: #2563eb;
+}
+
+.auth-error {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #dc2626;
+    font-size: 14px;
+    text-align: left;
+}
+
+@media (max-width: 500px) {
+    .auth-card {
+        padding: 28px 20px;
+    }
+
+    .auth-card h1 {
+        font-size: 24px;
+    }
+}
+
+/* Додаткові стилі реєстрації */
+
+.register-card {
+    max-width: 500px;
+}
+
+.register-card .auth-description {
+    margin-bottom: 24px;
+}
+
+.auth-hint {
+    color: #9ca3af;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.register-card .auth-form {
+    gap: 16px;
+}
+
+/* Сторінка забороненого доступу */
+
+.access-denied {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 20px;
+}
+
+.access-denied-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.access-denied-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: #ffebee;
+    color: #c62828;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.access-denied-card h1 {
+    margin-bottom: 15px;
+    color: #c62828;
+}
+
+.access-denied-card p {
+    margin-bottom: 25px;
+    color: #546e7a;
+}
+
+.access-denied-button {
+    display: inline-block;
+    padding: 11px 22px;
+    background-color: #1976d2;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.access-denied-button:hover {
+    background-color: #1565c0;
+}

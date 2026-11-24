@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Створення події | EventApp</title>
+    <link rel="icon" type="image/png" th:href="@{/images/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<main>
+
+    <section class="event-create">
+
+        <h1>Створення нової події</h1>
+
+        <p class="event-create-error"
+           th:if="${error}"
+           th:text="${error}">
+        </p>
+
+        <form th:action="@{/events/create}"
+              th:object="${eventCreationDTO}"
+              method="post">
+
+            <div class="event-create-section">
+
+                <h2>Інформація про подію</h2>
+
+                <label>Назва події:</label>
+                <input type="text" th:field="*{title}" required>
+
+                <label>Дата та час:</label>
+                <input type="datetime-local" th:field="*{eventDate}" required>
+
+            </div>
+
+            <div class="event-create-section">
+
+                <h2>Місце проведення</h2>
+
+                <label>Назва місця:</label>
+                <input type="text" th:field="*{place.name}" required>
+
+                <label>Адреса:</label>
+                <input type="text" th:field="*{place.address}">
+
+            </div>
+
+            <div class="event-create-section">
+
+                <h2>Набори квитків</h2>
+
+                <div class="ticket-pack"
+                     th:each="pack, stat : *{ticketPacks}">
+
+                    <h3 th:text="${stat.index == 0 ? 'Набір звичайних квитків' : 'Набір VIP-квитків'}"></h3>
+
+                    <label>Ціна:</label>
+                    <input type="number"
+                           th:field="*{ticketPacks[__${stat.index}__].cost}"
+                           min="0.01"
+                           step="0.01"
+                           required>
+
+                    <label>Кількість квитків:</label>
+                    <input type="number"
+                           th:field="*{ticketPacks[__${stat.index}__].count}"
+                           min="1"
+                           required>
+
+                </div>
+
+            </div>
+
+            <button type="submit">Створити подію</button>
+
+        </form>
+
+        <a class="event-create-back" th:href="@{/events}">
+            Повернутися до подій
+        </a>
+
+    </section>
+
+</main>
+
+</body>
+</html>

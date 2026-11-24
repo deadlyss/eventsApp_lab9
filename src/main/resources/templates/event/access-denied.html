@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Доступ заборонено | EventApp</title>
+    <link rel="icon" type="image/png" th:href="@{/images/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<main>
+
+    <section class="access-denied">
+
+        <div class="access-denied-card">
+
+            <div class="access-denied-icon">!</div>
+
+            <h1>Доступ заборонено</h1>
+
+            <p>
+                У вас немає прав для виконання цієї дії.
+            </p>
+
+            <a class="access-denied-button" th:href="@{/events}">
+                Повернутися до подій
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

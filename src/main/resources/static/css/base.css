@@ -1,0 +1,37 @@
+/* Загальні налаштування */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #263238;
+}
+
+/* Основний вміст */
+
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #172b4d;
+}
+
+h2 {
+    color: #344563;
+}
+
+/* Роздільники */
+
+hr {
+    border: none;
+    border-top: 1px solid #e1e5ea;
+    margin: 25px 0;
+}

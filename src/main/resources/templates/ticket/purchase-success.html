@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Купівлю завершено | EventApp</title>
+    <link rel="icon" type="image/png" th:href="@{/images/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<main>
+
+    <section class="purchase-success">
+
+        <h1>Квиток успішно придбано!</h1>
+
+        <div class="purchase-ticket">
+
+            <h2>Інформація про квиток</h2>
+
+            <p>
+                Номер квитка:
+                <strong th:text="${ticket.id}"></strong>
+            </p>
+
+            <p>
+                Подія:
+                <strong th:text="${ticket.event.title}"></strong>
+            </p>
+
+            <p>
+                Місце:
+                <strong th:text="${ticket.seatnumber}"></strong>
+            </p>
+
+            <p>
+                Вартість:
+                <strong th:text="${ticket.cost}"></strong>
+            </p>
+
+            <p>
+                Статус:
+                <strong th:text="${ticket.state}"></strong>
+            </p>
+
+        </div>
+
+        <a class="purchase-back" th:href="@{/events}">
+            Повернутися до подій
+        </a>
+
+    </section>
+
+</main>
+
+</body>
+</html>

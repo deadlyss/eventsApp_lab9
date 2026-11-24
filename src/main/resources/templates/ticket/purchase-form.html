@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="uk"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Купівля квитка | EventApp</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{images/favicon.png}">
+</head>
+
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<main class="purchase-container">
+
+    <div class="purchase-card">
+
+        <div class="purchase-icon">🎟</div>
+
+        <h1>Купівля квитка</h1>
+
+        <p class="purchase-description">
+            Ви майже на крок ближче до події!
+            Підтвердіть покупку квитка або увійдіть до свого облікового запису.
+        </p>
+
+        <p th:if="${error}"
+           th:text="${error}"
+           class="purchase-error">
+        </p>
+
+        <!-- Для авторизованих користувачів -->
+        <div sec:authorize="isAuthenticated()"
+             class="purchase-authenticated">
+
+            <p class="purchase-info">
+                Ви авторизовані та можете придбати цей квиток.
+            </p>
+
+            <form th:action="@{/tickets/purchase}" method="post">
+                <input type="hidden"
+                       name="ticketId"
+                       th:value="${ticketId}">
+
+                <button type="submit" class="purchase-button">
+                    Підтвердити покупку
+                </button>
+            </form>
+
+        </div>
+
+        <!-- Для гостей -->
+        <div sec:authorize="isAnonymous()"
+             class="purchase-guest">
+
+            <p class="purchase-info">
+                Щоб придбати квиток, необхідно увійти
+                або створити обліковий запис.
+            </p>
+
+            <a class="purchase-button"
+               th:href="@{/login(redirect='/tickets/' + ${ticketId} + '/purchase')}">
+                Увійти
+            </a>
+
+            <a class="purchase-register"
+               th:href="@{/customers/new(redirect='/tickets/' + ${ticketId} + '/purchase')}">
+                Зареєструватися
+            </a>
+
+        </div>
+
+        <a class="purchase-back" th:href="@{/events}">
+            ← Повернутися до подій
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

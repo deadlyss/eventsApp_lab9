@@ -1,0 +1,13 @@
+/* Загальні налаштування */
+@import url("./base.css");
+
+/* Структура сторінки */
+@import url("./layout.css");
+
+/* Загальні компоненти */
+@import url("./components.css");
+
+/* Стилі окремих сторінок */
+@import url("./pages/events.css");
+@import url("./pages/tickets.css");
+@import url("./pages/auth.css");
